@@ -98,8 +98,11 @@ deliberate, separate human act:
 
 1. Commit the release tooling and README changes, then push through the
    Wintermore pre-push gate (hook checks run and must pass).
-2. Tag the release commit: `git tag v<version>` (an annotated tag is
-   preferred; build `--version` should match the tag).
+2. Tag the release commit: `git tag v<version>`. Use a **lightweight tag**
+   (plain commit pointer); the gate's v1 contract requires every pushed ref
+   to carry the checked-out HEAD sha, which an annotated tag object can
+   never do — annotated tags are unevidencable by this gate. Build
+   `--version` should match the tag.
 3. Run `release/build.sh` (default output: `<repo>/dist`).
 4. In the GitHub UI create a Release for the tag and upload the four
    files. Do **not** auto-generate release notes from commits; write them
