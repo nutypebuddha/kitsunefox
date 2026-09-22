@@ -151,6 +151,26 @@ For actual request blocking, use a content blocker such as uBlock Origin.
 
 A fresh Firefox profile is recommended.
 
+## 0. From a release archive
+
+The GitHub Release page carries an archive plus a checksum
+(`kitsunefox-<version>.tar.gz.sha256`) and `verify.sh` (needs only `sh`,
+`tar`, `gzip`, and coreutils — no git, no Python, no network). With all
+three beside each other:
+
+```text
+sh verify.sh kitsunefox-<version>.tar.gz kitsunefox-<version>.tar.gz.sha256
+tar -xzf kitsunefox-<version>.tar.gz
+cd kitsunefox-<version>
+```
+
+The archive unpacks to a single directory containing everything this
+README documents: `user.js`, the theme directories, `userContent.css`,
+`README.md`, `LICENSE`, and `launcher/`. Where the steps below say
+`kitsunefox/user.js` or `launcher/kitsunefox`, read that as the unpacked
+directory in its place (`kitsunefox-<version>/`). The release tooling
+under `release/` is deliberately excluded from the archive.
+
 ## 1. Locate your Firefox profile
 
 Open:

@@ -8,3 +8,6 @@ Desktop.ini
 .vscode/
 .idea/
 *.log
+
+# release build output
+dist/
